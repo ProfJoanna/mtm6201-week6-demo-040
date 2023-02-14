@@ -1,0 +1,204 @@
+:root {
+    --primary-color: #d94224;
+    --secondary-color: #551cf1;
+    --light-color: white;
+    --dark-color: #212121;
+    --regular-padding: 1rem;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* descendant combinator ( space ) */
+header nav ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+header nav ul li {
+    padding-top: var(--regular-padding);
+    padding-bottom: var(--regular-padding);
+    border-top: 2px solid var(--primary-color);
+}
+
+header nav ul li a {
+    padding-top: var(--regular-padding);
+    padding-bottom: var(--regular-padding);
+    text-decoration: none;
+}
+
+/* direct child combinator ( > ) */
+header > h1 {
+    text-align: center;
+    text-shadow: 2px 2px 0 var(--primary-color);
+    font-size: 2.5rem;
+}
+
+main > p {
+    font-size: 1.25rem;
+}
+
+/* adjacent combinator ( + ) */
+
+h2 + p {
+    background: var(--dark-color);
+    color: var(--light-color);
+    padding: 2rem;
+}
+
+/* sibling combinator ( ~ ) */
+.stars span:hover ~ span {
+    opacity: 0.3;
+}
+
+.stars span {
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+/* attribute selector [] */
+/* element[attribute] => a[href]*/
+a[href] {
+    color: var(--primary-color);
+}
+
+/* element[attribute="value"] => a[href='#'] */
+a[href='#'] {
+    font-size: 1.25rem;
+}
+
+/* element[attribute^="value"] (begins with value) */
+a[href^="http"] {
+    color: var(--secondary-color);
+    border-left: 4px solid var(--secondary-color);
+    padding: var(--regular-padding);
+    display: block;
+    margin-top: 1rem;
+    background: lavender;
+}
+
+/* element[attribute*="value"] (contains value) */
+a[target*="_b"] {
+    font-weight: bold;
+}
+
+/* element[attribute$="value"] (ends with value) */
+a[href$=".pdf"]::after {
+    color: var(--secondary-color);
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    content: "\f1c1";
+    font-size: 1.5rem;
+    padding-left: 0.3rem;
+}
+
+/* LoVe HAte */
+
+header nav a:link {
+    /* box-shadow: 2px 2px 0 var(--dark-color); */
+    transition: all 0.3s;
+}
+
+header nav a:visited {
+    /* color: papayawhip; */
+}
+
+header nav a:hover {
+    background: var(--light-color);
+    color: var(--primary-color);
+    outline: 2px solid var(--primary-color);
+}
+
+header nav a:active {
+    font-weight: bold;
+}
+
+textarea:focus {
+    border: 2px solid var(--primary-color);
+}
+
+form *:required {
+    border: 1px solid red;
+}
+
+form *:valid {
+    background: lightgreen;
+}
+
+form *:invalid {
+    background: lightpink;
+}
+
+form *:read-only {
+    background: var(--light-color);
+}
+
+/* ::before  */
+header h1::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    content: "\f1b0";
+}
+/* ::after */
+/* example on line 79 */
+
+/* ::first-letter */
+h2 + p::first-letter {
+    font-size: 3rem;
+    float: left;
+    padding-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* ::first-line */
+h2 + p::first-line {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* ::placeholder */
+textarea::placeholder {
+    color: rgb(126, 0, 0);
+}
+
+/* ::selection */
+p::selection {
+    background: var(--primary-color);
+    color: var(--light-color);
+}
+
+/* calc() function */
+.google {
+    width: calc(100% - 4rem - 4px);
+    margin: 1rem;
+}
+
+/* Tablet Size */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 43rem;
+        margin: 0 auto;
+    }
+    header nav ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    header nav ul li {
+        border: none;
+    }
+
+    header nav ul li a {
+        background: var(--primary-color);
+        padding: var(--regular-padding);
+        color: var(--light-color) !important;
+    }
+
+
+
+}
